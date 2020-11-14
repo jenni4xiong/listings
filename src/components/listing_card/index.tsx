@@ -11,12 +11,26 @@ const CardWrapper = styled.div`
   background-color: white;
 `;
 
+const InfoContainer = styled.div`
+  margin-left: 1em;
+  text-align: left;
+`
+const Name = styled.div`
+  font-weight: bold;
+  font-size: 1.1em;
+`
+const City = styled.div`
+  font-size: .8em;
+`
+
 const ListingCard = ({ listing }: { listing: any }) => (
   <CardWrapper>
     <Avatar img={`${get(listing, "avatar_image.small_url")}`} />
-    <div> {listing.name} </div>
-    <div> {listing.city} </div>
-    <div> {listing.rating} </div>
+    <InfoContainer>
+      <City> {listing.city} </City>
+      <Name> {listing.name} </Name>
+      {/* <Rating> {listing.rating} </Rating> */}
+    </InfoContainer>
   </CardWrapper>
 );
 
