@@ -4,11 +4,11 @@ import styled from "styled-components";
 import get from "lodash.get";
 
 const CardWrapper = styled.div`
-  width: 100%;
-  height: 60px;
+  padding: 1em;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  background-color: white;
 `;
 
 const ListingCard = ({ listing }: { listing: any }) => (

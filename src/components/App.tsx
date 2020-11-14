@@ -8,6 +8,8 @@ import {
   AppHeader,
   AppWrapper,
   AppContent,
+  Center,
+  Container,
   ListingGroups,
   HeroSection,
   ContentContainer,
@@ -50,6 +52,7 @@ function App() {
   }
 
   function getLabel(listings: any, label: string) {
+    console.log('getlabel', listings, label)
     if (get(listings, "listings").length) {
       return (
         <div key={label}>
@@ -59,7 +62,7 @@ function App() {
     }
     return <div />;
   }
-
+  console.log('get listings', get(regions['doctor'], "listings"), regions['doctor'])
   return (
     <AppWrapper>
       <AppHeader>
@@ -85,21 +88,28 @@ function App() {
           </TextContent>
         </ContentContainer>
       </HeroSection>
-      <AppContent>
-        {error && error.length && <div> {error} </div>}
-        {regions && !!Object.entries(regions).length && (
-          <React.Fragment>
-            {regionTypes.map((regionType: RetailerType) => (
-              <ListingGroups key={regionType}>
-                <h2 className="shouldBeInListingGroups">
-                  {getLabel(regions[regionType], regionLabels[regionType])}
-                </h2>
-                <ListingCards listings={get(regions[regionType], "listings")} />
-              </ListingGroups>
-            ))}
-          </React.Fragment>
-        )}
-      </AppContent>
+      <Container>
+        <AppContent>
+          <Center>
+            {error && error.length && <div> {error} </div>}
+            {regions && !!Object.entries(regions).length && (
+              <React.Fragment>
+                {regionTypes.map((regionType: RetailerType) => {
+                  console.log('regionType', regionType)
+                  return (
+                    <ListingGroups key={regionType}>
+                      <h2>
+                        {getLabel(regions[regionType], regionLabels[regionType])}
+                      </h2>
+                      <ListingCards listings={get(regions[regionType], "listings")} />
+                    </ListingGroups>
+                  )
+                })}
+              </React.Fragment>
+            )}
+          </Center>
+        </AppContent>
+      </Container>
     </AppWrapper>
   );
 }

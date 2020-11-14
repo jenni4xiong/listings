@@ -21,12 +21,8 @@ export const AppWrapper = styled.div`
 `;
 
 export const AppContent = styled.div`
-  width: 90%;
   max-width: 1200px;
-  margin: 10px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: 10px auto;
 `;
 
 export const ListingGroups = styled.div`
@@ -34,7 +30,24 @@ export const ListingGroups = styled.div`
   h2 {
     text-align: left;
   }
+  width: 100%;
 `;
+
+export const Container = styled.div`
+  background-color: lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+`
+
+export const Center = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60vw;
+  max-width: 95vw;
+  margin: auto;
+`
 
 export const HeroSection = styled.div`
   background-color: white;
