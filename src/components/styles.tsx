@@ -19,6 +19,7 @@ export const AppWrapper = styled.div`
   margin-bottom: 20px;
   text-align: center;
   color: #222;
+  font-family: Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
 `;
 
 export const AppContent = styled.div`
