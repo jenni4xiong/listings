@@ -18,7 +18,7 @@ export const AppHeader = styled.div`
 export const AppWrapper = styled.div`
   margin-bottom: 20px;
   text-align: center;
-  color: #222;
+  color: #4A4A4A;
   font-family: Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
 `;
 
@@ -36,7 +36,7 @@ export const ListingGroups = styled.div`
 `;
 
 export const Container = styled.div`
-  background-color: lightgray;
+  background-color: #f1f3f2;
   display: flex;
   flex-direction: row;
   justify-content:center;
@@ -70,6 +70,18 @@ export const HeroSection = styled.div`
     }
   }
 `;
+
+export const Image = styled.img`
+  width: 1.5rem;
+  height: 1.3rem;
+  margin-right: .5rem;
+`
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
 
 export const ContentContainer = styled.div`
   width: 100%;

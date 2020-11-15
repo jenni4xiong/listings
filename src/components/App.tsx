@@ -10,6 +10,8 @@ import {
   AppContent,
   Center,
   Container,
+  Image,
+  Row,
   ListingGroups,
   HeroSection,
   ContentContainer,
@@ -20,14 +22,14 @@ import {
 import { GlobalContext, EMPTY } from "../context";
 
 type RetailerType = "delivery" | "dispensary" | "doctor";
-const regionTypes: RetailerType[] = ["delivery", "dispensary", "doctor"];
+const regionTypes: RetailerType[] = ["dispensary", "delivery", "doctor"];
 const regionLabels: {
   delivery: string;
   dispensary: string;
   doctor: string;
 } = {
-  delivery: "Deliveries",
-  dispensary: "Dispensaries",
+  delivery: "Delivery Services",
+  dispensary: "Dispensary Storefronts",
   doctor: "Doctors"
 };
 
@@ -98,9 +100,12 @@ function App() {
                   console.log('regionType', regionType)
                   return (
                     <ListingGroups key={regionType}>
-                      <h2>
-                        {getLabel(regions[regionType], regionLabels[regionType])}
-                      </h2>
+                      <Row>
+                        {regions[regionType].listings.length > 0 ? <Image src={`${regionType}.png`} alt='doc'></Image> : null}
+                        <h2>
+                          {getLabel(regions[regionType], regionLabels[regionType])}
+                        </h2>
+                      </Row>
                       <ListingCards listings={get(regions[regionType], "listings")} />
                     </ListingGroups>
                   )

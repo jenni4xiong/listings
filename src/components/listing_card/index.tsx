@@ -10,6 +10,8 @@ const CardWrapper = styled.div`
   align-items: center;
   margin-bottom: 10px;
   background-color: white;
+  border: 0.0625rem solid rgb(230, 229, 229);
+  box-shadow: .05rem .05rem .1rem lightgray;
 `;
 
 const InfoContainer = styled.div`
@@ -17,11 +19,14 @@ const InfoContainer = styled.div`
   text-align: left;
 `
 const Name = styled.div`
-  font-weight: bold;
-  font-size: 1.1em;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: .15rem;
+  margin-bottom: .3rem;
 `
 const City = styled.div`
-  font-size: .8em;
+  font-size: .875rem;
+  font-weight: 400;
   color: #a4a2a2;
 `
 

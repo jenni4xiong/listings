@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 
+interface IProps {
+  fill: number
+}
+
 const Stars = styled.div`
   width: 80.016px;
   height: 15px;
@@ -24,7 +28,7 @@ const Unfilled = styled.div`
   position: absolute;
 `;
 
-const Filled = styled.div`
+const Filled = styled.div<IProps>`
   position: absolute;
   width: ${(props) => `${props.fill}%`};
   height: 100%;
@@ -49,7 +53,7 @@ const Rating = ({rating}: {rating: number}) => {
         <Star>
           <Unfilled />
           <Filled fill={fill} />
-        </Star>
+        </Star> 
       );
     });
     return filled;
