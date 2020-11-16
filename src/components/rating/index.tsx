@@ -32,7 +32,7 @@ const Filled = styled.div<IProps>`
   position: absolute;
   width: ${(props) => `${props.fill}%`};
   height: 100%;
-  background-color: #00ced6;
+  background-color: #05c5c0;
 `;
 
 

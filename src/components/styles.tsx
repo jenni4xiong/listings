@@ -138,8 +138,8 @@ export const LocateButton = styled.a`
 `;
 
 export const TealBar = styled.div`
-  height: 3rem;
-  background-color: #00ced6;
+  height: 2rem;
+  background-color: #05c5c0;
 `
 export const BlackBar = styled.div<IBlackBarProps>`
   background-color:#222;
