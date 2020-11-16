@@ -158,3 +158,8 @@ export const Img = styled.img`
   height: 1.3rem;
   margin-right: .3rem;
 `
+
+export const IconContainer = styled.span`
+  width: 1.5rem;
+  margin-right: .4rem;
+`

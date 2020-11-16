@@ -4,13 +4,18 @@ import logo from "../assets/logo.png";
 import ListingCards from "./listing_cards";
 import Locate from "../icons/locate";
 import MapPin from "../icons/map-pin";
+import DeliveryIcon from "../icons/delivery"
+import DispensaryIcon from "../icons/dispensary"
+import DoctorIcon from "../icons/doctor"
+
+
 import {
   AppHeader,
   AppWrapper,
   AppContent,
   Center,
   Container,
-  Image,
+  // Image,
   Row,
   ListingGroups,
   HeroSection,
@@ -22,8 +27,11 @@ import {
   BlackBar,
   Footer,
   Img,
+  IconContainer,
 } from "./styles"; //styled components
 import { GlobalContext, EMPTY } from "../context";
+import { stringify } from "querystring";
+import Dispensary from "../icons/dispensary";
 
 type RetailerType = "delivery" | "dispensary" | "doctor";
 const regionTypes: RetailerType[] = ["dispensary", "delivery", "doctor"];
@@ -40,25 +48,25 @@ const regionLabels: {
 function App() {
   //globalContext is from the create context
   const values = React.useContext(GlobalContext);
-  console.log('values:', values)
+  // console.log('values:', values)
   if (values === EMPTY) {
     throw new Error("Component must be wrapped with <Container.Provider>");
   }
   const { location, isLocating, error, regions, locate } = values;
-  console.log('locate', locate)
+  // console.log('locate', locate)
 
   function locateMe() {
-    console.log('clicked', navigator.geolocation)
+    // console.log('clicked', navigator.geolocation)
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        console.log('position coords: ', position.coords)
+        // console.log('position coords ', position.coords)
         locate(position.coords);
       });
     }
   }
 
   function getLabel(listings: any, label: string) {
-    console.log('getlabel', listings, label)
+    // console.log('getlabel', listings, label)
     if (get(listings, "listings").length) {
       return (
         <div key={label}>
@@ -68,7 +76,15 @@ function App() {
     }
     return <div />;
   }
-  console.log('get listings', get(regions['doctor'], "listings"), regions['doctor'])
+
+  function renderSwitch(regionType: string) {
+    switch (regionType) {
+      case "dispensary": return <DispensaryIcon/>
+      case "delivery": return <DeliveryIcon />
+      case "doctor": return <DoctorIcon />
+    }
+  }
+  // console.log('get listings', get(regions['doctor'], "listings"), regions['doctor'])
   return (
     <AppWrapper>
       <AppHeader>
@@ -102,11 +118,15 @@ function App() {
             {regions && !!Object.entries(regions).length && (
               <React.Fragment>
                 {regionTypes.map((regionType: RetailerType) => {
-                  console.log('regionType', regionType)
                   return (
                     <ListingGroups key={regionType}>
                       <Row>
-                        {regions[regionType].listings.length > 0 ? <Image src={`${regionType}.png`} alt='doc'></Image> : null}
+                        {regions[regionType].listings.length > 0 ? 
+                          <IconContainer>
+                            {renderSwitch(regionType)}
+                          </IconContainer>
+                          : null
+                        }
                         <h2>
                           {getLabel(regions[regionType], regionLabels[regionType])}
                         </h2>

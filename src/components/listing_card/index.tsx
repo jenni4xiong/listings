@@ -31,7 +31,7 @@ const City = styled.div`
 `
 
 const ListingCard = ({ listing }: { listing: any }) => {
-  console.log('listing', listing)
+  // console.log('listing', listing)
   return (
     <CardWrapper>
       <Avatar img={`${get(listing, "avatar_image.small_url")}`} />

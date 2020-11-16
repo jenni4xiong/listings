@@ -1,7 +1,7 @@
 import React from "react";
 import { IconParams } from "./icons.d";
 
-export const Delivery = (
+const Delivery = (
   { height, width, fill }: IconParams = {
     height: "20px",
     width: "20px",
