@@ -15,7 +15,6 @@ import {
   AppContent,
   Center,
   Container,
-  // Image,
   Row,
   ListingGroups,
   HeroSection,
@@ -26,13 +25,9 @@ import {
   TealBar,
   BlackBar,
   Footer,
-  Img,
   IconContainer,
 } from "./styles"; //styled components
 import { GlobalContext, EMPTY } from "../context";
-import { stringify } from "querystring";
-import Dispensary from "../icons/dispensary";
-
 type RetailerType = "delivery" | "dispensary" | "doctor";
 const regionTypes: RetailerType[] = ["dispensary", "delivery", "doctor"];
 const regionLabels: {
@@ -46,27 +41,21 @@ const regionLabels: {
 };
 
 function App() {
-  //globalContext is from the create context
   const values = React.useContext(GlobalContext);
-  // console.log('values:', values)
   if (values === EMPTY) {
     throw new Error("Component must be wrapped with <Container.Provider>");
   }
   const { location, isLocating, error, regions, locate } = values;
-  // console.log('locate', locate)
 
   function locateMe() {
-    // console.log('clicked', navigator.geolocation)
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        // console.log('position coords ', position.coords)
         locate(position.coords);
       });
     }
   }
 
   function getLabel(listings: any, label: string) {
-    // console.log('getlabel', listings, label)
     if (get(listings, "listings").length) {
       return (
         <div key={label}>
@@ -79,12 +68,11 @@ function App() {
 
   function renderSwitch(regionType: string) {
     switch (regionType) {
-      case "dispensary": return <DispensaryIcon/>
-      case "delivery": return <DeliveryIcon />
-      case "doctor": return <DoctorIcon />
+      case "dispensary": return <DispensaryIcon fill={"#484848"}/>
+      case "delivery": return <DeliveryIcon fill={"#484848"}/>
+      case "doctor": return <DoctorIcon fill={"#484848"}/>
     }
   }
-  // console.log('get listings', get(regions['doctor'], "listings"), regions['doctor'])
   return (
     <AppWrapper>
       <AppHeader>
@@ -99,8 +87,9 @@ function App() {
               <span> {isLocating && !location ? "...locating" : ""} </span>
             </h2>
             <LocateButton onClick={locateMe}>
-              <Locate fill={"#7e7979"} />
-              <Img src="locate.png"></Img>
+              <IconContainer>
+                <Locate fill={"#7e7979"} />
+              </IconContainer>
               <span> Locate Me </span>
             </LocateButton>
           </LocationSection>

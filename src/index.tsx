@@ -17,7 +17,7 @@ const cacheStore = window.localStorage.getItem("store") || {};
 
 function ContextWrapper() {
   const globalValues = useGlobal(cacheStore);
-  console.log('globalValues', globalValues)
+  // console.log('globalValues', globalValues)
   return (
     <GlobalContext.Provider value={globalValues}>
       <React.Fragment>

@@ -26,7 +26,7 @@ export const AppHeader = styled.div`
 export const AppWrapper = styled.div`
   margin-bottom: 0px;
   text-align: center;
-  color: #4A4A4A;
+  color: #484848;
   font-family: Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
 `;
 

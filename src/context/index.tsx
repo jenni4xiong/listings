@@ -50,11 +50,9 @@ export function useGlobal(
     setIsLocating(true);
     fetch(url, options)
       .then(res => {
-        console.log('res', res)
         return res.json();
       })
       .then((json: any) => {
-        console.log('json', json)
         setLocation(json.data.location);
         setRegions(json.data.regions);
       })
