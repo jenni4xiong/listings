@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import Avatar from "../avatar";
 import styled from "styled-components";
 import get from "lodash.get";
@@ -23,6 +24,7 @@ const Name = styled.div`
   font-size: 1rem;
   margin-top: .15rem;
   margin-bottom: .3rem;
+  color: #484848;
 `
 const City = styled.div`
   font-size: .875rem;
@@ -32,14 +34,16 @@ const City = styled.div`
 
 const ListingCard = ({ listing }: { listing: any }) => {
   return (
-    <CardWrapper>
-      <Avatar img={`${get(listing, "avatar_image.small_url")}`} />
-      <InfoContainer>
-        <City> {listing.city} | {Math.ceil(listing.distance)}mi</City>
-        <Name> {listing.name} </Name>
-        <Rating rating={listing.rating} />
-      </InfoContainer>
-    </CardWrapper>
+    <Link to="card" style={{textDecoration: 'none'}}>
+      <CardWrapper>
+        <Avatar img={`${get(listing, "avatar_image.small_url")}`} />
+        <InfoContainer>
+          <City> {listing.city} | {Math.ceil(listing.distance)}mi</City>
+          <Name> {listing.name} </Name>
+          <Rating rating={listing.rating} />
+        </InfoContainer>
+      </CardWrapper>
+    </Link>
   )
 };
 
