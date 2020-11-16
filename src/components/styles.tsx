@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+interface IFooterProps {
+  position: string;
+}
+
+interface IBlackBarProps {
+  height: string;
+}
+
 export const AppHeader = styled.div`
   height: 70px;
   display: flex;
@@ -16,7 +24,7 @@ export const AppHeader = styled.div`
 `;
 
 export const AppWrapper = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   text-align: center;
   color: #4A4A4A;
   font-family: Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
@@ -40,6 +48,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content:center;
+  position: relative;
 `
 
 export const Center = styled.div`
@@ -127,3 +136,25 @@ export const LocateButton = styled.a`
     margin-right: 5px;
   }
 `;
+
+export const TealBar = styled.div`
+  height: 3rem;
+  background-color: #00ced6;
+`
+export const BlackBar = styled.div<IBlackBarProps>`
+  background-color:#222;
+  height: ${(props) => props.height};
+  overflow: auto;
+`
+
+export const Footer = styled.div<IFooterProps>`
+  bottom: 0px;
+  position: ${(props) => props.position}; 
+  width: 100%;
+`
+
+export const Img = styled.img`
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: .3rem;
+`

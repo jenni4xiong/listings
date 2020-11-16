@@ -17,7 +17,11 @@ import {
   ContentContainer,
   LocationSection,
   TextContent,
-  LocateButton
+  LocateButton,
+  TealBar,
+  BlackBar,
+  Footer,
+  Img,
 } from "./styles"; //styled components
 import { GlobalContext, EMPTY } from "../context";
 
@@ -80,6 +84,7 @@ function App() {
             </h2>
             <LocateButton onClick={locateMe}>
               <Locate fill={"#7e7979"} />
+              <Img src="locate.png"></Img>
               <span> Locate Me </span>
             </LocateButton>
           </LocationSection>
@@ -115,6 +120,10 @@ function App() {
           </Center>
         </AppContent>
       </Container>
+      <Footer position={!('city' in values.location)  ? 'absolute' : 'relative'}>
+        <TealBar></TealBar>
+        <BlackBar height={!('city' in values.location) ? '4.2rem' : '15rem'}></BlackBar>
+      </Footer>
     </AppWrapper>
   );
 }
