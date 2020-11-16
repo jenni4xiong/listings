@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router';
 
-const Card = () => {
+const Card = (props: any) => {
   return (
     <div>
       Card Hello
@@ -10,4 +11,4 @@ const Card = () => {
   )
 }
 
-export default Card;
+export default withRouter(Card);

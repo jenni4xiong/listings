@@ -13,11 +13,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const cacheStore = window.localStorage.getItem("store") || {};
+// TODO: cache global values
+const cacheStore = window.localStorage.getItem("store") || {}; 
 
 function ContextWrapper() {
   const globalValues = useGlobal(cacheStore);
-  // console.log('globalValues', globalValues)
+
   return (
     <GlobalContext.Provider value={globalValues}>
       <React.Fragment>

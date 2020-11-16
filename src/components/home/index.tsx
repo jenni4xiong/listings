@@ -73,6 +73,7 @@ const Home = () => {
       case "doctor": return <DoctorIcon fill={"#484848"}/>
     }
   }
+
   return (
     <AppWrapper>
       <AppHeader>

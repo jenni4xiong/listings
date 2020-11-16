@@ -36,11 +36,12 @@ export const AppContent = styled.div`
 `;
 
 export const ListingGroups = styled.div`
-  margin-top: 30px;
+  margin-top: 5px;
   h2 {
     text-align: left;
   }
   width: 100%;
+  margin-bottom: 30px;
 `;
 
 export const Container = styled.div`
@@ -48,7 +49,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content:center;
-  position: relative;
 `
 
 export const Center = styled.div`

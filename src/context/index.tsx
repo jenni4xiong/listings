@@ -59,7 +59,6 @@ export function useGlobal(
       .catch(() => setError("Oops something went wrong"));
     setIsLocating(false);
   }
-
   return {
     isLocating,
     setIsLocating,

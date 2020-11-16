@@ -7,7 +7,7 @@ import {
 import Home from "./home";
 import Card from "./card";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Switch>
