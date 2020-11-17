@@ -13,7 +13,7 @@ const CardWrapper = styled.div`
   background-color: white;
   border: 0.0625rem solid rgb(230, 229, 229);
   box-shadow: .05rem .05rem .1rem lightgray;
-  min-height: 5.3rem;
+  height: 5.2rem;
 `;
 
 const InfoContainer = styled.div`

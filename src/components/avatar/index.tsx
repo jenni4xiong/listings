@@ -6,6 +6,10 @@ const ImgWrapper = styled.div<{ width: string; height: string }>`
     width: ${props => props.width};
     height: ${props => props.height};
     object-fit: cover;
+    @media (max-width:375px) {
+      width: 6rem;
+      height: 6rem;
+    }
   }
 `;
 
