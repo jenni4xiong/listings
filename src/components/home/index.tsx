@@ -4,9 +4,10 @@ import logo from "../../assets/logo.png";
 import ListingCards from "../listing_cards";
 import Locate from "../../icons/locate";
 import MapPin from "../../icons/map-pin";
-import DeliveryIcon from "../../icons/delivery"
-import DispensaryIcon from "../../icons/dispensary"
-import DoctorIcon from "../../icons/doctor"
+import DeliveryIcon from "../../icons/delivery";
+import DispensaryIcon from "../../icons/dispensary";
+import DoctorIcon from "../../icons/doctor";
+import Footer from "../footer";
 import {
   AppHeader,
   AppWrapper,
@@ -20,9 +21,6 @@ import {
   LocationSection,
   TextContent,
   LocateButton,
-  TealBar,
-  BlackBar,
-  Footer,
   IconContainer,
 } from "../styles";
 import { GlobalContext, EMPTY } from "../../context";
@@ -130,10 +128,10 @@ const Home = () => {
           </Center>
         </AppContent>
       </Container>
-      <Footer position={!('city' in values.location)  ? 'absolute' : 'relative'}>
-        <TealBar></TealBar>
-        <BlackBar height={!('city' in values.location) ? '4.2rem' : '15rem'}></BlackBar>
-      </Footer>
+      <Footer 
+        position={!('city' in values.location)  ? 'absolute' : 'relative'} 
+        height={!('city' in values.location) ? '4.2rem' : '15rem'}
+      />
     </AppWrapper>
   )
 }

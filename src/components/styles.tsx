@@ -147,7 +147,7 @@ export const BlackBar = styled.div<IBlackBarProps>`
   overflow: auto;
 `
 
-export const Footer = styled.div<IFooterProps>`
+export const FooterContainer = styled.div<IFooterProps>`
   bottom: 0px;
   position: ${(props) => props.position}; 
   width: 100%;

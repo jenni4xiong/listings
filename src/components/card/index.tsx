@@ -1,40 +1,37 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import styled from 'styled-components';
 import logo from "../../assets/logo.png";
 import Avatar from "../avatar";
 import get from "lodash.get";
 import Rating from "../rating";
+import Footer from "../footer";
 import {
   AppHeader
 } from "../styles";
 
 const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
+  border-bottom: 1px solid lightgray;
 `
 const MainContainer = styled.div`
-  height: 20rem;
-  width: 100%;
-  border: 1px solid black;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+const InfoContainer = styled.div`
+  
+`
+
+const Img = styled.img`
+  width:23rem;
+  margin:1.4rem;
 `
 
 const Card = (props: any) => {
   console.log('props', props.location.state)
   const listing = props.location.state.listing
-  //rating
-  //avatar image
-  //best_of_weedmaps
-  //distance
-  //name
-  //online ordering
-  //reviews count
-  //retailer_services
-  //slug
-  //city
-  //type
-  //static map url
   return (
     <Container>
       <AppHeader>
@@ -42,12 +39,24 @@ const Card = (props: any) => {
       </AppHeader>
       <MainContainer>
         <Avatar img={`${get(listing, "avatar_image.small_url")}`} width={"10rem"} height={"10rem"} />
-        <div>
-          <Rating rating={listing.rating} width={"6rem"} height={"1.15rem"}/>
-        </div>
+        <InfoContainer>
+          <div>{listing.name}</div>
+          <div>
+            <Rating rating={listing.rating} width={"6rem"} height={"1.15rem"}/>
+            ({listing.reviews_count})
+          </div>
+          <div>
+            {listing.city}, {listing.state}
+            {' | '}
+            {Math.floor(listing.distance * 10) / 10}mi
+          </div>
+          <div>{listing.type}</div>
+          {/* <div>{listing.online_ordering}</div> */}
+          <div>{listing.best_of_weedmaps}</div>
+        </InfoContainer>
       </MainContainer>
-      {/* <div>{props.location.state.listing.rating}</div> */}
-      <Link to="/" style={{textDecoration: 'none'}}>Back</Link>
+      <Img src="blm.png" alt="blm"/>
+      <Footer height={"4.2rem"} position={"absolute"}/>
     </Container>
   )
 }
