@@ -1,15 +1,11 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import styled from 'styled-components';
-import logo from "../../assets/logo.png";
 import Avatar from "../avatar";
 import get from "lodash.get";
 import Rating from "../rating";
 import Footer from "../footer";
-import {
-  AppHeader
-} from "../styles";
+import Header from "../header";
 
 const Container = styled.div`
   border-bottom: 1px solid lightgray;
@@ -34,9 +30,7 @@ const Card = (props: any) => {
   const listing = props.location.state.listing
   return (
     <Container>
-      <AppHeader>
-        <img src={logo} alt="weedmaps logo" />
-      </AppHeader>
+      <Header />
       <MainContainer>
         <Avatar img={`${get(listing, "avatar_image.small_url")}`} width={"10rem"} height={"10rem"} />
         <InfoContainer>
@@ -51,7 +45,6 @@ const Card = (props: any) => {
             {Math.floor(listing.distance * 10) / 10}mi
           </div>
           <div>{listing.type}</div>
-          {/* <div>{listing.online_ordering}</div> */}
           <div>{listing.best_of_weedmaps}</div>
         </InfoContainer>
       </MainContainer>

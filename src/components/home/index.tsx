@@ -1,6 +1,5 @@
 import React from "react";
 import get from "lodash.get";
-import logo from "../../assets/logo.png";
 import ListingCards from "../listing_cards";
 import Locate from "../../icons/locate";
 import MapPin from "../../icons/map-pin";
@@ -8,8 +7,8 @@ import DeliveryIcon from "../../icons/delivery";
 import DispensaryIcon from "../../icons/dispensary";
 import DoctorIcon from "../../icons/doctor";
 import Footer from "../footer";
+import Header from "../header";
 import {
-  AppHeader,
   AppWrapper,
   AppContent,
   Center,
@@ -74,9 +73,7 @@ const Home = () => {
 
   return (
     <AppWrapper>
-      <AppHeader>
-        <img src={logo} alt="weedmaps logo" />
-      </AppHeader>
+      <Header />
       <HeroSection>
         <ContentContainer>
           <LocationSection>
