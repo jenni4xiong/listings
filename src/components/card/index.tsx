@@ -1,11 +1,26 @@
 import React from 'react';
-import {withRouter} from 'react-router';
+import {withRouter, RouteComponentProps} from 'react-router';
 import styled from 'styled-components';
 import Avatar from "../avatar";
-import get from "lodash.get";
+import Header from "../header";
 import Rating from "../rating";
 import Footer from "../footer";
-import Header from "../header";
+import get from "lodash.get";
+
+interface IListings {
+  name: String,
+  city: String, 
+  state: String,
+  distance: number,
+  type: String, 
+  reviews_count: number,
+  rating: number,
+}
+interface IProps {
+  location: {
+    state: {listing: IListings}
+  };
+};
 
 const Container = styled.div`
   height: 100vh;
@@ -26,13 +41,11 @@ const InfoContainer = styled.div`
   color: #222;
   margin-left: 1rem;
 `
-
 const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 `
-
 const Img = styled.img`
   width: 21rem;
   margin: auto;
@@ -40,7 +53,6 @@ const Img = styled.img`
     width: 19rem;
   }
 `
-
 const Name = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
@@ -49,7 +61,6 @@ const Name = styled.div`
     font-size: 1.5rem;
   }
 `
-
 const Button = styled.button`
   height: 2.5rem;
   width: 6rem;
@@ -61,18 +72,15 @@ const Button = styled.button`
     height: 2rem;
   }
 `
-
 const Space = styled.div`
   width: 1rem;
 `
-
 const SmallFont = styled.div`
   font-size: 1rem;
   @media (max-width: 350px) {
     font-size: .8rem;
   }
 `
-
 const Center = styled.div`
   width: fit-content;
   display: flex;
@@ -83,9 +91,8 @@ const Center = styled.div`
   }
 `
 
-const Card = (props: any) => {
-  console.log('props', props.location.state)
-  const listing = props.location.state.listing
+const Card = ({location}: IProps & RouteComponentProps) => {
+  const listing = location.state.listing
   return (
     <Container>
       <Header />
@@ -118,7 +125,7 @@ const Card = (props: any) => {
       </Center>
       <Footer height={"4.3rem"} position={"absolute"}/>
     </Container>
-  )
-}
+  );
+};
 
 export default withRouter(Card);

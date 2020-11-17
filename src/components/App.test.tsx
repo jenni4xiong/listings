@@ -4,7 +4,7 @@ import { render, fireEvent, act } from "@testing-library/react";
 import jest from "jest-mock";
 import App from "./App";
 
-function setup(props?: any) {
+const setup = (props?: any) => {
   return (
     <AllTheProviders {...props}>
       <App />

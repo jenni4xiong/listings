@@ -9,15 +9,15 @@ const ImgWrapper = styled.div<{ width: string; height: string }>`
     @media (max-width:375px) {
       width: 6rem;
       height: 6rem;
-    }
-  }
+    };
+  };
 `;
 
 const Avatar = (
   {
     img,
     width,
-    height
+    height,
   }: {
     img: string;
     width?: string;

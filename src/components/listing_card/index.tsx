@@ -1,9 +1,9 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import Avatar from "../avatar";
 import styled from "styled-components";
-import get from "lodash.get";
+import Avatar from "../avatar";
 import Rating from "../rating";
+import {Link} from "react-router-dom";
+import get from "lodash.get";
 
 const CardWrapper = styled.div`
   padding: 1em;
@@ -14,8 +14,7 @@ const CardWrapper = styled.div`
   border: 0.0625rem solid rgb(230, 229, 229);
   box-shadow: .05rem .05rem .1rem lightgray;
   height: 5.2rem;
-`;
-
+`
 const InfoContainer = styled.div`
   margin-left: 1em;
   text-align: left;
@@ -37,7 +36,8 @@ const ListingCard = ({ listing }: { listing: any }) => {
   const location = {
     pathname:"/card", 
     state: {listing}
-  }
+  };
+
   return (
     <Link 
       to={location}
@@ -52,7 +52,7 @@ const ListingCard = ({ listing }: { listing: any }) => {
         </InfoContainer>
       </CardWrapper>
     </Link>
-  )
+  );
 };
 
 export default ListingCard;

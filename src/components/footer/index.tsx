@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   FooterContainer, 
   TealBar,
@@ -11,7 +11,7 @@ const Footer = ({position, height}: {position: string, height: string}) => {
         <TealBar></TealBar>
         <BlackBar height={height}></BlackBar>
     </FooterContainer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

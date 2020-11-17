@@ -1,13 +1,12 @@
 import React from "react";
-import get from "lodash.get";
+import Header from "../header";
 import ListingCards from "../listing_cards";
+import Footer from "../footer";
 import Locate from "../../icons/locate";
 import MapPin from "../../icons/map-pin";
 import DeliveryIcon from "../../icons/delivery";
 import DispensaryIcon from "../../icons/dispensary";
 import DoctorIcon from "../../icons/doctor";
-import Footer from "../footer";
-import Header from "../header";
 import {
   AppWrapper,
   AppContent,
@@ -22,54 +21,60 @@ import {
   LocateButton,
   IconContainer,
 } from "../styles";
+import get from "lodash.get";
 import { GlobalContext, EMPTY } from "../../context";
 
 type RetailerType = "delivery" | "dispensary" | "doctor";
 
 const regionTypes: RetailerType[] = ["dispensary", "delivery", "doctor"];
 const regionLabels: {
-  delivery: string;
   dispensary: string;
+  delivery: string;
   doctor: string;
 } = {
-  delivery: "Delivery Services",
   dispensary: "Dispensary Storefronts",
+  delivery: "Delivery Services",
   doctor: "Doctors"
 };
 
 const Home = () => {
   const values = React.useContext(GlobalContext);
+
   if (values === EMPTY) {
     throw new Error("Component must be wrapped with <Container.Provider>");
-  }
+  };
+
   const { location, isLocating, error, regions, locate } = values;
 
-  function locateMe() {
+  const locateMe = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         locate(position.coords);
       });
-    }
-  }
+    };
+  };
 
-  function getLabel(listings: any, label: string) {
+  const getLabel = (listings: {}, label: string) => {
     if (get(listings, "listings").length) {
       return (
         <div key={label}>
           <strong> {label} </strong>
         </div>
       );
-    }
+    };
     return <div />;
-  }
+  };
 
-  function renderSwitch(regionType: string) {
+  const renderSwitch = (regionType: string) => {
+    const fillColor = "#484848"
     switch (regionType) {
-      case "dispensary": return <DispensaryIcon fill={"#484848"}/>
-      case "delivery": return <DeliveryIcon fill={"#484848"}/>
-      case "doctor": return <DoctorIcon fill={"#484848"}/>
-    }
-  }
+      case "dispensary": return <DispensaryIcon fill={fillColor}/>
+      case "delivery": return <DeliveryIcon fill={fillColor}/>
+      case "doctor": return <DoctorIcon fill={fillColor}/>
+    };
+  };
+
+  const fillColor = "#7e7979";
 
   return (
     <AppWrapper>
@@ -78,13 +83,13 @@ const Home = () => {
         <ContentContainer>
           <LocationSection>
             <h2>
-              <MapPin fill={"#7e7979"} width={"60px"} height={"40px"} />
+              <MapPin fill={fillColor} width={"60px"} height={"40px"} />
               <span> {location ? location.name : ""} </span>
               <span> {isLocating && !location ? "...locating" : ""} </span>
             </h2>
             <LocateButton onClick={locateMe}>
               <IconContainer>
-                <Locate fill={"#7e7979"} />
+                <Locate fill={fillColor} />
               </IconContainer>
               <span> Locate Me </span>
             </LocateButton>
@@ -130,7 +135,7 @@ const Home = () => {
         height={!('city' in values.location) ? '4.2rem' : '15rem'}
       />
     </AppWrapper>
-  )
-}
+  );
+};
 
 export default Home;

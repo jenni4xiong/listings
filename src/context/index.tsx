@@ -20,19 +20,19 @@ type Values = {
   locate: (cords: LatLng) => void;
 };
 
-export function useGlobal(
+export const useGlobal = (
   initialState: {
     isLocating?: IsLocating;
     regions?: Regions;
     location?: Location;
   } = {}
-): Values {
+): Values  => {
   const [isLocating, setIsLocating] = React.useState(!!initialState.isLocating);
   const [regions, setRegions] = React.useState(initialState.regions || {});
   const [location, setLocation] = React.useState(initialState.location || {});
   const [error, setError] = React.useState("");
 
-  async function locate(coords: LatLng) {
+  const locate = (coords: LatLng) => {
     const params = [
       `include${encodeURIComponent("[]")}=regions.listings`,
       `latlng=${encodeURIComponent(`${coords.latitude},${coords.longitude}`)}`
