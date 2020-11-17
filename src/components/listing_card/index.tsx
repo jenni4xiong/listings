@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import Avatar from "../avatar";
 import styled from "styled-components";
@@ -36,7 +36,7 @@ const City = styled.div`
 const ListingCard = ({ listing }: { listing: any }) => {
   const location = {
     pathname:"/card", 
-    state: {message: "hello, I'm a passed message"}
+    state: {listing}
   }
   return (
     <Link 
