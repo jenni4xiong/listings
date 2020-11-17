@@ -1,13 +1,18 @@
 import React from 'react';
 import styled from "styled-components";
 
-interface IProps {
+interface IFilledProps {
   fill: number
 }
 
-const Stars = styled.div`
-  width: 80.016px;
-  height: 15px;
+interface IStarsProps {
+  width: string,
+  height: string,
+}
+
+const Stars = styled.div<IStarsProps>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   position: relative;
   display: flex;
   direction: row;
@@ -28,7 +33,7 @@ const Unfilled = styled.div`
   position: absolute;
 `;
 
-const Filled = styled.div<IProps>`
+const Filled = styled.div<IFilledProps>`
   position: absolute;
   width: ${(props) => `${props.fill}%`};
   height: 100%;
@@ -36,7 +41,7 @@ const Filled = styled.div<IProps>`
 `;
 
 
-const Rating = ({rating}: {rating: number}) => {
+const Rating = ({rating, width, height}: {rating: number, width: string, height: string}) => {
   const starFilled = (starRating: any) => {
     const stars = [0, 1, 2, 3, 4];
 
@@ -59,7 +64,7 @@ const Rating = ({rating}: {rating: number}) => {
     return filled;
   }
   return (
-    <Stars>
+    <Stars width={width} height={height}>
       {starFilled(rating)}
     </Stars>
   )

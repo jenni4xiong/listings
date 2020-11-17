@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import Avatar from "../avatar";
 import styled from "styled-components";
@@ -44,11 +44,11 @@ const ListingCard = ({ listing }: { listing: any }) => {
       style={{textDecoration: 'none'}}
     >
       <CardWrapper>
-        <Avatar img={`${get(listing, "avatar_image.small_url")}`} />
+        <Avatar img={`${get(listing, "avatar_image.small_url")}`} width={"6rem"} height={"6rem"}/>
         <InfoContainer>
           <City> {listing.city} | {Math.ceil(listing.distance)}mi</City>
           <Name> {listing.name} </Name>
-          <Rating rating={listing.rating} />
+          <Rating rating={listing.rating} width={"5.5rem"} height={"1.08rem"}/>
         </InfoContainer>
       </CardWrapper>
     </Link>
