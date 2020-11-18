@@ -23,7 +23,7 @@ test("will call locate on 'Locate Me' click", () => {
   };
   const mockGeolocation = {
     getCurrentPosition: jest.fn((cb: any) =>
-      cb({ coords: { latitude: 32.32, longitude: 22.42 } })
+      cb({ coords: { latitude: 37.58, longitude: -122.42 } })
     )
   };
   (window.navigator as any).geolocation = mockGeolocation;
@@ -33,7 +33,7 @@ test("will call locate on 'Locate Me' click", () => {
   });
   expect(mockGeolocation.getCurrentPosition).toHaveBeenCalled();
   expect(globalOverrides.locate).toHaveBeenCalledWith({
-    latitude: 32.32,
-    longitude: 22.42
+    latitude: 37.58,
+    longitude: -122.42
   });
 });

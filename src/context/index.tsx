@@ -26,7 +26,7 @@ export const useGlobal = (
     regions?: Regions;
     location?: Location;
   } = {}
-): Values  => {
+  ): Values  => {
   const [isLocating, setIsLocating] = React.useState(!!initialState.isLocating);
   const [regions, setRegions] = React.useState(initialState.regions || {});
   const [location, setLocation] = React.useState(initialState.location || {});
